@@ -15,6 +15,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import {  AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { DestinationDataComponent } from './destination-data/destination-data.component';
+import { FactureComponent } from './facture/facture.component';
 
 
 
@@ -24,7 +25,7 @@ import { DestinationDataComponent } from './destination-data/destination-data.co
 
 const routes: Routes = [ 
 { path: 'login', component: LoginComponent },
-
+{ path : 'Facture' , component:FactureComponent},
 { path: 'inscription',component: RegisterComponent },
 { path: 'destinataire',component: DestinataireComponent },
 { path: 'article' ,component: ArticleComponent },
@@ -36,7 +37,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [BrowserModule,ReactiveFormsModule, RouterModule.forRoot(routes),FormsModule, HttpClientModule,AngularFireModule.initializeApp(environment.firebase),AngularFirestoreModule,AngularFireAuthModule],
-  declarations: [AppComponent, LoginComponent, RegisterComponent, DestinataireComponent, ArticleComponent, RedirectionComponent, DestinationDataComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, DestinataireComponent, ArticleComponent, RedirectionComponent, DestinationDataComponent, FactureComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule } from '@angular/forms';
 import { AuthService } from "../shared/services/auth.service";
 
 @Component({
@@ -11,13 +11,19 @@ import { AuthService } from "../shared/services/auth.service";
 export class LoginComponent implements OnInit {
 email:string =''
 password:string =''
-
-  constructor(public authService: AuthService) { }
+  myForm: any;
+  constructor(public auth: AuthService , private fb : FormBuilder) { }
 
   ngOnInit(): void {
+    this.myForm = this.fb.group({
+      email : ''
+    })
+
   }
-onclick(){
-  console.log(this.email+this.password)
+showinfo(data :string){
+  let formObj = this.myForm.getRawValue();
+  console.log(formObj.email)
+  this.auth.setEmail(formObj.email.toString());
 }
 
 }

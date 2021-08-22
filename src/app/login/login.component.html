@@ -10,16 +10,16 @@
                         <figure class="avatar">
                             <img class="logo-post" class="centered" height="40%" width="40%"src="assets\image\posttn.png">
                         </figure>
-                        <form>
+                        <form  [formGroup] ='myForm'>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" #userName [ngModel] name="email" type="email" placeholder="votre courriel">
+                                    <input formControlName="email"  class="input is-large" #userName  name="email" type="email" placeholder="votre courriel">
                                 </div>
                             </div>
 
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large"  #userPassword  [ngModel] name="password" type="password" placeholder="votre mot de passe">
+                                    <input class="input is-large"  #userPassword   name="password" type="password" placeholder="votre mot de passe">
                                 </div>
                             </div>
                             <div class="field">
@@ -28,7 +28,7 @@
                   Rappelle-moi
                 </label>
                             </div>
-                            <button (click)="authService.SignIn(userName.value, userPassword.value)" class="button is-block is-info is-large is-fullwidth">Login</button>
+                            <button  (click)="auth.SignIn(userName.value, userPassword.value) ; showinfo(userName.value)" class="button is-block is-info is-large is-fullwidth">Login</button>
                         </form>
                     </div>
                     <p class="has-text-grey">

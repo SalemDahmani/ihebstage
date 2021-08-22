@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 
 export class AuthService {
   userData: any; // Save logged in user data
-  data: string = '' ;
+  email: string = '' ;
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -115,13 +115,14 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['/login']);
     })
   }
-  getEmail(){
-    return this.data
-  }
   setEmail(data:string){
-    this.data = data ;
+    this.email = data ;
   }
+  getEmail(){
+    return this.email ;
+  }
+ 
 }
